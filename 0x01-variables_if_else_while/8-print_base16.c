@@ -15,6 +15,9 @@ int main(void)
         putchar(i);
         i++;
     }
+    
+    putchar(' ');
+    
     i = 97;
     while (i < 103)
     {
