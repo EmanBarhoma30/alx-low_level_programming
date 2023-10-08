@@ -7,23 +7,16 @@
  */
 int main(void)
 {
-    int i;
+	int i;
 
-    i = 48;
-    while (i < 58)
-    {
-        putchar(i);
-        i++;
-    }
-    
-    putchar(' ');
-    
-    i = 97;
-    while (i < 103)
-    {
-        putchar(i);
-        i++;
-    }
-    putchar('\n');
-    return (0);
+	for (i = 48; i < 58; i++)
+	{
+		putchar(i);
+	}
+	for (i = 97; i < 103; i++)
+	{
+		putchar(i);
+	}
+	putchar('\n');
+	return (0);
 }
