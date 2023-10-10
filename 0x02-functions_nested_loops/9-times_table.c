@@ -8,11 +8,11 @@
  */
 void _print_two_digit_number(int num)
 {
-    int tens = num / 10;
-    int units = num % 10;
-    
-    _putchar('0' + tens);
-    _putchar('0' + units);
+	int tens = num / 10;
+	int units = num % 10;
+
+	_putchar('0' + tens);
+	_putchar('0' + units);
 }
 
 /**
@@ -22,30 +22,30 @@ void _print_two_digit_number(int num)
  */
 void times_table(void)
 {
-    int i = 0, j;
+	int i = 0, j;
 
-    for (; i < 10; i++)
-    {
-        for (j = 0; j < 10; j++)
-        {
-            if (j == 0)
-            {
-                _putchar('0');
-            }
-            else if (i * j <= 9)
-            {
-                _putchar(',');
-                _putchar(' ');
-                _putchar(' ');
-                _putchar('0' + i * j);
-            }
-            else
-            {
-                _putchar(',');
-                _putchar(' ');
-                _print_two_digit_number(i * j);
-            }
-        }
-        _putchar('\n');
-    }
+	for (; i < 10; i++)
+	{
+		for (j = 0; j < 10; j++)
+		{
+			if (j == 0)
+			{
+				_putchar('0');
+			}
+			else if (i * j <= 9)
+			{
+				_putchar(',');
+				_putchar(' ');
+				_putchar(' ');
+				_putchar('0' + i * j);
+			}
+			else
+			{
+				_putchar(',');
+				_putchar(' ');
+				_print_two_digit_number(i * j);
+			}
+		}
+		_putchar('\n');
+	}
 }
