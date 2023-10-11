@@ -13,19 +13,20 @@ int main(void)
 	curr = 2;
 
 	printf("%lu, ", prev);
-	
+
 	for (i = 1; i < 92; i++)
 	{
 		printf("%lu", curr);
 		next = prev + curr;
 		prev = curr;
 		curr = next;
-		
+
 		if (i != 91)
 		{
 			printf(", ");
 		}
 	}
+
 	printf("\n");
 	return (0);
 }
