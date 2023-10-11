@@ -9,22 +9,21 @@ int main(void)
 	unsigned long prev, curr, next;
 	int i;
 
-	prev = 1; /* initializing values */
-	curr = 2;
+	prev = 0; /* initializing values */
+	curr = 1;
 
-	printf("%lu, ", prev);
-
-	for (i = 1; i < 92; i++)
+	for (i = 0; i < 92; i++)
 	{
 		printf("%lu", curr);
-		next = prev + curr;
-		prev = curr;
-		curr = next;
 
 		if (i != 91)
 		{
 			printf(", ");
 		}
+
+		next = prev + curr;
+		prev = curr;
+		curr = next;
 	}
 
 	printf("\n");
