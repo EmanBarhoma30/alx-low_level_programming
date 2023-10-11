@@ -1,7 +1,18 @@
-sum = 0
+#include <stdio.h>
 
-for i in range(1, 1024):
-    if i % 3 == 0 or i % 5 == 0:
-        sum += i
+int main(void)
+{
+    int sum = 0;
+    int i;
 
-print(sum)
+    for (i = 1; i < 1024; i++)
+    {
+        if (i % 3 == 0 || i % 5 == 0)
+        {
+            sum += i;
+        }
+    }
+
+    printf("%d\n", sum);
+    return 0;
+}
