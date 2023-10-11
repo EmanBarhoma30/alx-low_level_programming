@@ -15,17 +15,14 @@ int main(void)
 	while (1)
 	{
 		next = prev + curr;
-		
 		if (next > 4000000)
 			break;
-			
 		if (next % 2 == 0)
 			evensum += next;
-			
 		prev = curr;
 		curr = next;
 	}
-	
+
 	printf("%lu\n", evensum);
 	return (0);
 }
