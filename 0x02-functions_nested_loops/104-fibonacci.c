@@ -1,26 +1,31 @@
 #include <stdio.h>
 
 /**
- * main - Print the first 92 Fibonacci numbers, starting with 1 and 2.
+ * main - Prints the first 92 Fibonacci numbers, starts with 1 and 2.
  * Return: Always 0 (Success)
  */
 int main(void)
 {
-	unsigned long prev = 1;
-	unsigned long curr = 2;
-	int i = 2;
+	unsigned long prev, curr, next;
+	int i;
+
+	prev = 1; /* initializing values */
+	curr = 2;
+
+	printf("%lu, ", prev);
 	
-	printf("%lu, %lu", prev, curr);
-	
-	while(i < 92)
+	for (i = 1; i < 92; i++)
 	{
-		unsigned long next = prev + curr;
-		printf(", %lu", next);
+		printf("%lu", curr);
+		next = prev + curr;
 		prev = curr;
 		curr = next;
-		i++;
+		
+		if (i != 91)
+		{
+			printf(", ");
+		}
 	}
-
 	printf("\n");
 	return (0);
 }
