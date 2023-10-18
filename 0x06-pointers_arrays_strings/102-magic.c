@@ -2,22 +2,22 @@
 
 int main(void)
 {
-   int number;
-   int array[5];
-   int *pointer_to_number;
+  int n;
+  int a[5];
+  int *p;
 
-   array[2] = 1024;
-   pointer_to_number = &number;
-
+  a[2] = 1024;
+  p = &n;
   /*
-   * Assignment operation to the 5th index position 
-   * ahead of pointer_to_number in the memory. Not allowed to use 'array'. 
-   * Not allowed to modify pointer_to_number. Only one statement is allowed here. 
+   * write your line of code here...
+   * Remember:
+   * - you are not allowed to use a
+   * - you are not allowed to modify p
+   * - only one statement
+   * - you are not allowed to code anything else than this line of code
    */
-
-    *(pointer_to_number + 5) = 98;
-
-   /* Prints 98 as per the assignment above */
-   printf("array[2] = %d\n", array[2]);
-   return (0);
+  *(p + 5) = 98;
+  /* ...so that this prints 98\n */
+  printf("a[2] = %d\n", a[2]);
+  return (0);
 }
