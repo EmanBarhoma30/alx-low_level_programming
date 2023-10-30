@@ -2,11 +2,11 @@
 #include <stdlib.h>
 
 /**
- * argstostr - Concatenates command-line arguments into a single string.
- * @ac: The number of command-line arguments.
- * @av: An array of strings containing the arguments.
+ * argstostr - Concatenates command-line arguments into a string.
+ * @ac: Number of arguments.
+ * @av: Array of argument strings.
  *
- * Return: A pointer to the concatenated string, or NULL if memory allocation fails.
+ * Return: Concatenated string, or NULL on memory allocation failure.
  */
 char *argstostr(int ac, char **av)
 {
