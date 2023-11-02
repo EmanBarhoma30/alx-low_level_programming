@@ -1,29 +1,72 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include <ctype.h>
 
 /**
- * is_positive_number - Check if a string is a positive number
- * @str: The string to check
+ * is_positive_number - Check if a string contains only digits.
+ * @s: The string to be evaluated.
  *
- * Return: 1 if it's a positive number, 0 otherwise
+ * Return: 1 if all characters are digits, 0 otherwise.
  */
-int is_positive_number(char *str)
+int is_positive_number(char *s)
 {
-	if (*str == '\0')
-		return (0);
+	int i = 0;
 
-	while (*str)
+	while (s[i])
 	{
-		if (!isdigit(*str))
+		if (s[i] < '0' || s[i] > '9')
 			return (0);
-		str++;
+		i++;
 	}
 	return (1);
 }
 
 /**
- * main - Multiplies two positive numbers.
+ * multiply - Multiply two positive numbers represented as strings.
+ * @s1: The first number.
+ * @s2: The second number.
+ *
+ * Return: A dynamically allocated string containing the product.
+ */
+char *multiply(char *s1, char *s2)
+{
+	int len1 = 0, len2 = 0, i, j, carry = 0, digit1, digit2, result_len;
+	char *result;
+
+	while (s1[len1])
+		len1++;
+	while (s2[len2])
+		len2++;
+
+	result_len = len1 + len2;
+	result = calloc(result_len + 1, sizeof(char));
+
+	if (!result)
+	{
+		return (NULL);
+	}
+
+	for (i = len1 - 1; i >= 0; i--)
+	{
+		digit1 = s1[i] - '0';
+		carry = 0;
+
+		for (j = len2 - 1; j >= 0; j--)
+		{
+			digit2 = s2[j] - '0';
+			carry += result[i + j + 1] + (digit1 * digit2);
+			result[i + j + 1] = carry % 10;
+			carry /= 10;
+		}
+
+		if (carry > 0)
+			result[i + j + 1] += carry;
+	}
+
+	return (result);
+}
+
+/**
+ * main - Multiplies two positive numbers passed as arguments.
  * @argc: The number of command-line arguments.
  * @argv: An array of command-line argument strings.
  *
@@ -31,7 +74,7 @@ int is_positive_number(char *str)
  */
 int main(int argc, char *argv[])
 {
-	int num1, num2, product;
+	char *s1, *s2, *product;
 
 	if (argc != 3 || !is_positive_number(argv[1]) || !is_positive_number(argv[2]))
 	{
@@ -39,11 +82,21 @@ int main(int argc, char *argv[])
 		return (98);
 	}
 
-	num1 = atoi(argv[1]);
-	num2 = atoi(argv[2]);
-	product = num1 * num2;
+	s1 = argv[1];
+	s2 = argv[2];
 
-	printf("%d\n", product);
+	product = multiply(s1, s2);
+
+	if (!product)
+	{
+		printf("Error\n");
+		return (98);
+	}
+
+	/* Print the product */
+	printf("%s\n", product);
+
+	free(product);
 
 	return (0);
 }
