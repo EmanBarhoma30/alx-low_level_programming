@@ -3,6 +3,26 @@
 #include <ctype.h>
 
 /**
+ * is_positive_number - Check if a string is a positive number
+ * @str: The string to check
+ *
+ * Return: 1 if it's a positive number, 0 otherwise
+ */
+int is_positive_number(char *str)
+{
+	if (*str == '\0')
+		return (0);
+
+	while (*str)
+	{
+		if (!isdigit(*str))
+			return (0);
+		str++;
+	}
+	return (1);
+}
+
+/**
  * main - Multiplies two positive numbers.
  * @argc: The number of command-line arguments.
  * @argv: An array of command-line argument strings.
@@ -12,24 +32,11 @@
 int main(int argc, char *argv[])
 {
 	int num1, num2, product;
-	int i, j;
 
-	if (argc != 3)
+	if (argc != 3 || !is_positive_number(argv[1]) || !is_positive_number(argv[2]))
 	{
 		printf("Error\n");
 		return (98);
-	}
-
-	for (i = 1; i < argc; i++)
-	{
-		for (j = 0; argv[i][j]; j++)
-		{
-			if (!isdigit(argv[i][j]))
-			{
-				printf("Error\n");
-				return (98);
-			}
-		}
 	}
 
 	num1 = atoi(argv[1]);
