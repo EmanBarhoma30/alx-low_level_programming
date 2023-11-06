@@ -3,7 +3,7 @@
 /**
  * main - Entry point
  *
- * Description: This function prints the name of the file
+ * Description: This function prints the name of the file.
  *
  * Return: Always 0 (Success)
  */
