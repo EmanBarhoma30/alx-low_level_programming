@@ -2,45 +2,7 @@
 #include "dog.h"
 
 /**
- * _strlen - Returns the length of a string.
- * @s: The string to evaluate.
- *
- * Return: The length of the string.
- */
-int _strlen(char *s)
-{
-	int i = 0;
-
-	while (s[i] != '\0')
-	{
-		i++;
-	}
-
-	return (i);
-}
-
-/**
- * _strcpy - Copies the string pointed to by src to the buffer pointed to by dest.
- * @dest: Pointer to the buffer in which we copy the string.
- * @src: String to be copied.
- *
- * Return: The pointer to dest.
- */
-char *_strcpy(char *dest, char *src)
-{
-	int i;
-
-	for (i = 0; src[i] != '\0'; i++)
-	{
-		dest[i] = src[i];
-	}
-	dest[i] = '\0';
-
-	return (dest);
-}
-
-/**
- * new_dog - Creates a new dog.
+ * new_dog - Creates a new dog structure and copies name and owner.
  * @name: Name of the dog.
  * @age: Age of the dog.
  * @owner: Owner of the dog.
