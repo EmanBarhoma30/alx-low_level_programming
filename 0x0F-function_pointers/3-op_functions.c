@@ -56,11 +56,11 @@ int op_div(int a, int b)
 }
 
 /**
- * op_mod - Returns the remainder of dividing two numbers.
- * @a: The dividend.
- * @b: The divisor.
+ * op_mod - Returns the result of dividing two numbers.
+ * @a: The first input.
+ * @b: The second input.
  *
- * Return: The remainder of a divided by b.
+ * Return: The result of a modulo by b.
  */
 int op_mod(int a, int b)
 {

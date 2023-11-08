@@ -2,44 +2,42 @@
 #include <stdlib.h>
 
 /**
- * print_opcodes - Prints the opcodes of this function.
- * @n: Number of bytes to print
+ * main - prints its own opcodes
+ * @argc: number of arguments
+ * @argv: array of arguments
+ *
+ * Return: Always 0 (Success)
  */
-void print_opcodes(int n)
+int main(int argc, char *argv[])
 {
-	if (n < 0)
+	int bytes, i;
+	char *arr;
+
+	if (argc != 2)
+	{
+		printf("Error\n");
+		exit(1);
+	}
+
+	bytes = atoi(argv[1]);
+
+	if (bytes < 0)
 	{
 		printf("Error\n");
 		exit(2);
 	}
-	int i;
-	unsigned char *p = (unsigned char *)print_opcodes;
 
-	for (i = 0; i < n; i++)
+	arr = (char *)main;
+
+	for (i = 0; i < bytes; i++)
 	{
-		printf("%02x", *(p + i));
-		if (i < n - 1)
-			printf(" ");
+		if (i == bytes - 1)
+		{
+			printf("%02hhx\n", arr[i]);
+			break;
+		}
+		printf("%02hhx ", arr[i]);
 	}
-	printf("\n");
-}
-
-/**
- * main - Entry point for the program
- * @argc: The number of command-line arguments
- * @argv: An array of strings containing the command-line arguments
- *
- * Return: 0 on success, or an error code on failure
- */
-int main(int argc, char *argv[])
-{
-	if (argc != 2)
-	{
-		printf("Error\n");
-		return (1);
-	}
-
-	print_opcodes(atoi(argv[1]));
 
 	return (0);
 }
