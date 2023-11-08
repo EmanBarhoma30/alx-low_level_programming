@@ -1,12 +1,11 @@
 #include "function_pointers.h"
 
 /**
- * int_index - Returns the index of the first element that matches the condition.
+ * int_index - Returns the index of the first matching element.
  * @array: Pointer to the array.
- * @size: Number of elements in the array.
- * @cmp: Pointer to a function that compares the elements.
- *
- * Return: Index of the first matching element, or -1 if no match found.
+ * @size: Number of elements.
+ * @cmp: Pointer to a comparison function.
+ * Return: Index of the first match, or -1 if none found.
  */
 int int_index(int *array, int size, int (*cmp)(int))
 {
