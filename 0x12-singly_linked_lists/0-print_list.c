@@ -1,5 +1,5 @@
-#include <stdio.h>
 #include "lists.h"
+#include <stdio.h>
 
 /**
 * print_list - prints all the elements of a linked list
@@ -7,20 +7,23 @@
 *
 * Return: the number of nodes printed
 */
+
 size_t print_list(const list_t *h)
 {
-	size_t nodes_printed = 0;
+	size_t count = 0;
+	const list_t *current_node;
 
-	while (h)
+	current_node = h;
+	while (current_node != NULL)
 	{
-		if (!h->str)
+		if (current_node->str == NULL)
 			printf("[0] (nil)\n");
 		else
-			printf("[%u] %s\n", h->len, h->str);
+			printf("[%d] %s\n", current_node->len, current_node->str);
 
-		h = h->next;
-		nodes_printed++;
+		count++;
+		current_node = current_node->next;
 	}
 
-	return (nodes_printed);
+	return (count);
 }
